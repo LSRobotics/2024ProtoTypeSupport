@@ -2,25 +2,25 @@
 
   package frc.robot.commands;
 
-  import frc.robot.subsystems.ArmAssembly;
+  import frc.robot.subsystems.subShooter;
   import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
   import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
   
     
       public class SequenceCmd2 extends SequentialCommandGroup {
   
-        ArmAssembly mArmAssembly;
+        subShooter m_SubShooter;
   
-        public  SequenceCmd2(ArmAssembly aa) {
+        public  SequenceCmd2(subShooter ss) {
   
           SmartDashboard.putString("Sequence", "Entry");
   
-          mArmAssembly = aa;
-          addRequirements(mArmAssembly);
+          m_SubShooter = ss;
+          addRequirements(m_SubShooter);
   
           addCommands(
-            new ArmUpCmd(mArmAssembly),
-            new HandReleaseCmd(mArmAssembly)
+            new shootBothCmd(m_SubShooter),
+            new shootBothCmd(m_SubShooter)
             );      
   
   

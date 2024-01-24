@@ -1,11 +1,12 @@
 
 package frc.robot.Autons;
 
-import frc.robot.commands.ArmDownCmd;
-import frc.robot.commands.ArmUpCmd;
-import frc.robot.commands.HandGrabCmd;
-import frc.robot.commands.HandReleaseCmd;
-import frc.robot.subsystems.ArmAssembly;
+
+import frc.robot.subsystems.subTalonTest;
+import frc.robot.Constants;
+import frc.robot.commands.shootLeftCmd;
+import frc.robot.commands.talonSpinCmd;
+import frc.robot.subsystems.subShooter;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 import edu.wpi.first.wpilibj2.command.WaitCommand;
@@ -14,7 +15,7 @@ import edu.wpi.first.wpilibj2.command.WaitCommand;
 
     //ArmAssembly mArmAssembly;
 
-    public  AutonCmd1(ArmAssembly aa) {
+    public  AutonCmd1(subTalonTest tt, subShooter ss) {
  
       //mArmAssembly = aa;
       //addRequirements(mArmAssembly);
@@ -24,22 +25,11 @@ import edu.wpi.first.wpilibj2.command.WaitCommand;
       SmartDashboard.putString("Auton1", "Starting");
 
       addCommands(
-        new ArmUpCmd(aa),
+        new talonSpinCmd(tt, Constants.kTalonSpR),
         new WaitCommand(2),
-        new HandGrabCmd(aa),
+        new talonSpinCmd(tt, Constants.kTalonSpF),
         new WaitCommand(2),
-        new ArmDownCmd(aa),
-        new WaitCommand(2),
-        new HandReleaseCmd(aa),
-        new WaitCommand(2),
-        new ArmUpCmd(aa),
-        new WaitCommand(2),
-        new HandGrabCmd(aa),
-        new WaitCommand(2),
-        new ArmDownCmd(aa),
-        new WaitCommand(2),
-        new HandReleaseCmd(aa)
-        
+        new shootLeftCmd(ss)        
         );
 
         SmartDashboard.putString("Auton1", "Finished");  

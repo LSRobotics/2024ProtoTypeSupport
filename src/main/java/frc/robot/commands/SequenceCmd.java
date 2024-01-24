@@ -2,25 +2,28 @@
 
   package frc.robot.commands;
 
-import frc.robot.subsystems.ArmAssembly;
+import frc.robot.Constants;
+import frc.robot.subsystems.subTalonTest;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
+import edu.wpi.first.wpilibj2.command.WaitCommand;
 
   
     public class SequenceCmd extends SequentialCommandGroup {
 
-      ArmAssembly mArmAssembly;
+      subTalonTest m_SubTalonTest;
 
-      public  SequenceCmd(ArmAssembly aa) {
+      public  SequenceCmd(subTalonTest tt) {
 
         SmartDashboard.putString("Sequence", "Entry");
 
-        mArmAssembly = aa;
-        addRequirements(mArmAssembly);
+        m_SubTalonTest = tt;
+        addRequirements(m_SubTalonTest);
 
         addCommands(
-          new ArmDownCmd(mArmAssembly),
-          new HandGrabCmd(mArmAssembly)
+          new talonSpinCmd(tt,Constants.kTalonSpF),
+          new WaitCommand(5),
+          new talonSpinCmd(tt,Constants.kTalonSpR)
           );      
 
 

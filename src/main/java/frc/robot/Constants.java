@@ -14,22 +14,30 @@ package frc.robot;
  */
 public final class Constants {
 
-    //Solenoid adddresses positions
 
-    public static final int kGrabber_out_port = 0;
-    public static final int kGrabber_in_port  = 1;
-    public static final int kArm_up_port      = 3;
-    public static final int kArm_Down_port    = 2;
-    
     public static final int kUSBPort0 = 0;
     public static final int kUSBPort1 = 1;
 
     public static final int kCanID10 = 10;
     public static final int kCanID11 = 11;
-    public static final double kleftSpeed = 0.5;
-    public static final double krightSpeed = 0.5;
-    public static final double km_speed = 0.5;
-    public static int kCanID15 = 15;
+    public static final int kCanID12 = 12;
+    public static final int kCanID13 = 13;
+    public static final int kCanID14 = 14;
+    public static final int kCanID15 = 15;
+    public static final int kCanID16 = 16;
+    public static final int kCanID17 = 17;
+    public static final int kCanID18 = 18;
+    public static final int kCanID19 = 19;
+    
+    public static final double kLeftSpeed    = 0.3;
+    public static final double kRightSpeed   = 0.3;
+    public static final double km_speed      = 0.3;
+    public static final double kdeploy_speed = 0.3;
+    public static final double kintake_speed = -0.3;
+
+    public static final double kTalonSpF = 0.2;
+    public static final double kTalonSpR = -0.2;
+
 
 
 }
